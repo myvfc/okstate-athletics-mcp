@@ -37,7 +37,7 @@ export async function scrapeRoster(sport: string): Promise<Player[]> {
   try {
     await page.goto(`https://okstate.com/sports/${sport}/roster`, {
       waitUntil: 'networkidle',
-      timeout: 30000
+      timeout: 60000
     });
     
     const players = await page.evaluate(() => {
@@ -77,7 +77,7 @@ export async function scrapeSchedule(sport: string): Promise<Game[]> {
   try {
     await page.goto(`https://https://okstate.com/sports/${sport}/schedule`, {
       waitUntil: 'networkidle',
-      timeout: 30000
+      timeout: 60000
     });
     
     const games = await page.evaluate(() => {
@@ -106,7 +106,7 @@ export async function scrapeStats(sport: string): Promise<Stat[]> {
   try {
     await page.goto(`https://https://okstate.com/sports/${sport}/stats`, {
       waitUntil: 'networkidle',
-      timeout: 30000
+      timeout: 60000
     });
     
     const stats = await page.evaluate(() => {
@@ -142,7 +142,7 @@ export async function scrapeNews(sport: string, limit: number = 10): Promise<New
   try {
     await page.goto(`https://https://okstate.com//sports/${sport}/archives`, {
       waitUntil: 'networkidle',
-      timeout: 30000
+      timeout: 60000
     });
     
     await page.waitForTimeout(2000);

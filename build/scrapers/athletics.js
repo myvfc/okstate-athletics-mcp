@@ -5,7 +5,7 @@ export async function scrapeRoster(sport) {
     try {
         await page.goto(`https://okstate.com/sports/${sport}/roster`, {
             waitUntil: 'networkidle',
-            timeout: 30000
+            timeout: 60000
         });
         const players = await page.evaluate(() => {
             const playerElements = document.querySelectorAll('.sidearm-roster-player');
@@ -40,7 +40,7 @@ export async function scrapeSchedule(sport) {
     try {
         await page.goto(`https://https://okstate.com/sports/${sport}/schedule`, {
             waitUntil: 'networkidle',
-            timeout: 30000
+            timeout: 60000
         });
         const games = await page.evaluate(() => {
             const gameElements = document.querySelectorAll('.sidearm-schedule-game');
@@ -66,7 +66,7 @@ export async function scrapeStats(sport) {
     try {
         await page.goto(`https://https://okstate.com/sports/${sport}/stats`, {
             waitUntil: 'networkidle',
-            timeout: 30000
+            timeout: 60000
         });
         const stats = await page.evaluate(() => {
             const statRows = document.querySelectorAll('.stats-table tbody tr, .sidearm-table tbody tr');
@@ -96,7 +96,7 @@ export async function scrapeNews(sport, limit = 10) {
     try {
         await page.goto(`https://https://okstate.com//sports/${sport}/archives`, {
             waitUntil: 'networkidle',
-            timeout: 30000
+            timeout: 60000
         });
         await page.waitForTimeout(2000);
         const news = await page.evaluate((maxArticles) => {
