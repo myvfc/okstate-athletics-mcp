@@ -35,9 +35,9 @@ export async function scrapeRoster(sport: string): Promise<Player[]> {
   const page = await browser.newPage();
   
   try {
-    await page.goto(`https://okstate.com/sports/${sport}/roster`, {
+    await page.goto(`https://nmhuathletics.com/sports/${sport}/roster`, {
       waitUntil: 'networkidle',
-      timeout: 60000
+      timeout: 30000
     });
     
     const players = await page.evaluate(() => {
@@ -75,9 +75,9 @@ export async function scrapeSchedule(sport: string): Promise<Game[]> {
   const page = await browser.newPage();
   
   try {
-    await page.goto(`https://https://okstate.com/sports/${sport}/schedule`, {
+    await page.goto(`https://nmhuathletics.com/sports/${sport}/schedule`, {
       waitUntil: 'networkidle',
-      timeout: 60000
+      timeout: 30000
     });
     
     const games = await page.evaluate(() => {
@@ -104,9 +104,9 @@ export async function scrapeStats(sport: string): Promise<Stat[]> {
   const page = await browser.newPage();
   
   try {
-    await page.goto(`https://https://okstate.com/sports/${sport}/stats`, {
+    await page.goto(`https://nmhuathletics.com/sports/${sport}/stats`, {
       waitUntil: 'networkidle',
-      timeout: 60000
+      timeout: 30000
     });
     
     const stats = await page.evaluate(() => {
@@ -140,9 +140,9 @@ export async function scrapeNews(sport: string, limit: number = 10): Promise<New
   const page = await browser.newPage();
   
   try {
-    await page.goto(`https://https://okstate.com//sports/${sport}/archives`, {
+    await page.goto(`https://nmhuathletics.com/sports/${sport}/archives`, {
       waitUntil: 'networkidle',
-      timeout: 60000
+      timeout: 30000
     });
     
     await page.waitForTimeout(2000);
@@ -174,7 +174,7 @@ export async function scrapeNews(sport: string, limit: number = 10): Promise<New
           title: link.textContent?.trim() || '',
           date: date,
           summary: '',
-          link: href.startsWith('http') ? href : `https://https://okstate.com/${href}`
+          link: href.startsWith('http') ? href : `https://nmhuathletics.com${href}`
         };
       });
     }, limit);
